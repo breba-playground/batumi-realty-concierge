@@ -34,6 +34,7 @@
             --color-white: #FFFFFF;
             --color-light-gray: #E3E6EC;
             --color-charcoal: #333843;
+            --color-whatsapp: #25D366;
 
             --shadow-soft: 0 18px 45px rgba(10, 39, 64, 0.12);
             --radius-card: 1.25rem;
@@ -147,19 +148,14 @@
         }
 
         .icon-circle {
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: 999px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(10, 132, 214, 0.08);
             color: var(--color-ocean-blue);
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .icon-circle:hover {
-            background: rgba(10, 132, 214, 0.18);
             transform: translateY(-1px);
             text-decoration: none;
         }
@@ -168,7 +164,78 @@
             font-size: 1.2rem;
         }
 
+        .whatsapp-icon {
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .navbar-social {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-1px);
+            text-decoration: none;
+            opacity: 0.9;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link--facebook .social-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: #1877F2;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .footer-social .social-link--facebook .social-icon {
+            width: 2.1rem;
+            height: 2.1rem;
+        }
+
+        .social-link--whatsapp .whatsapp-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
         /* Buttons */
+        a.btn:hover,
+        a.btn:focus {
+            text-decoration: none;
+        }
+
+        .btn-with-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
         .btn-primary-brand {
             background-color: var(--color-ocean-blue);
             border-color: var(--color-ocean-blue);
@@ -1099,14 +1166,14 @@
                 </ul>
 
                 <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
-                    <div class="navbar-social">
-                        <a class="icon-circle" href="https://www.facebook.com/profile.php?id=100070818982111" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <span class="material-icons" aria-hidden="true">facebook</span>
+                    <div class="navbar-social social-links">
+                        <a class="social-link social-link--facebook" href="https://www.facebook.com/profile.php?id=100070818982111" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <span class="material-icons social-icon" aria-hidden="true">facebook</span>
+                        </a>
+                        <a class="social-link social-link--whatsapp" href="whatsapp://call?phone=995557914194" target="_blank" rel="noopener noreferrer" aria-label="Call on WhatsApp">
+                            <span class="whatsapp-icon social-icon" aria-hidden="true"></span>
                         </a>
                     </div>
-                    <button type="button" class="btn btn-primary-brand" data-bs-toggle="modal" data-bs-target="#calendlyModal">
-                        Book a Viewing
-                    </button>
                 </div>
             </div>
         </div>
@@ -1140,12 +1207,10 @@
                         </div>
                     </div>
                     <div class="hero-actions">
-                        <button type="button" class="btn btn-primary-brand" data-bs-toggle="modal" data-bs-target="#calendlyModal">
-                            Book a Viewing
-                        </button>
-                        <button type="button" class="btn btn-outline-sand" data-bs-toggle="modal" data-bs-target="#contactModal">
-                            Send a Message
-                        </button>
+                        <a class="btn btn-primary-brand btn-with-icon" href="whatsapp://call?phone=995557914194" target="_blank" rel="noopener noreferrer">
+                            <span class="whatsapp-icon" aria-hidden="true"></span>
+                            <span>Call Now</span>
+                        </a>
                     </div>
                     <p class="hero-note text-small">
                         Personal, multilingual support for buyers, renters, and investors.
@@ -1170,7 +1235,7 @@
                                 <div class="agent-contact">
                                     <div>
                                         <div class="text-small text-muted text-uppercase agent-contact-label">Call or WhatsApp</div>
-                                        <a href="tel:+995557914194">+995 557 91 41 94</a>
+                                        <a href="whatsapp://call?phone=995557914194" target="_blank" rel="noopener noreferrer">+995 557 91 41 94</a>
                                     </div>
                                     <div class="agent-rating">
                                         <span class="material-icons" aria-hidden="true">verified</span>
@@ -1347,9 +1412,10 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <button type="button" class="btn btn-primary-brand" data-bs-toggle="modal" data-bs-target="#calendlyModal">
-                    Discuss Investment Options
-                </button>
+                <a class="btn btn-primary-brand btn-with-icon" href="whatsapp://call?phone=995557914194" target="_blank" rel="noopener noreferrer">
+                    <span class="whatsapp-icon" aria-hidden="true"></span>
+                    <span>Call Now</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1560,7 +1626,7 @@
                             </div>
                             <div>
                                 <div class="text-small text-muted">Phone / WhatsApp</div>
-                                <a href="tel:+995557914194">+995 557 91 41 94</a>
+                                <a href="whatsapp://call?phone=995557914194" target="_blank" rel="noopener noreferrer">+995 557 91 41 94</a>
                             </div>
                         </li>
                         <li>
@@ -1583,12 +1649,10 @@
                         </li>
                     </ul>
                     <div class="d-flex gap-2 contact-btns flex-wrap">
-                        <button type="button" class="btn btn-primary-brand" data-bs-toggle="modal" data-bs-target="#contactModal">
-                            Send a Message
-                        </button>
-                        <button type="button" class="btn btn-outline-sand" data-bs-toggle="modal" data-bs-target="#calendlyModal">
-                            Book a Viewing
-                        </button>
+                        <a class="btn btn-primary-brand btn-with-icon" href="whatsapp://call?phone=995557914194" target="_blank" rel="noopener noreferrer">
+                            <span class="whatsapp-icon" aria-hidden="true"></span>
+                            <span>Call Now</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -1627,13 +1691,13 @@
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex flex-column align-items-md-end gap-2">
-                        <div class="footer-social">
-                            <a class="icon-circle" href="https://www.facebook.com/profile.php?id=100070818982111" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <span class="material-icons" aria-hidden="true">facebook</span>
+                        <div class="footer-social social-links">
+                            <a class="social-link social-link--facebook" href="https://www.facebook.com/profile.php?id=100070818982111" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <span class="material-icons social-icon" aria-hidden="true">facebook</span>
                             </a>
                         </div>
                         <div class="footer-contact">
-                            <span>Phone: <a href="tel:+995557914194">+995 557 91 41 94</a></span><br>
+                            <span>Phone: <a href="whatsapp://call?phone=995557914194" target="_blank" rel="noopener noreferrer">+995 557 91 41 94</a></span><br>
                             <span>Email: <a href="mailto:villagia2023@gmail.com">villagia2023@gmail.com</a></span>
                         </div>
                     </div>
